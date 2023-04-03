@@ -2,6 +2,7 @@ const express = require('express');
 const routes =  express.Router();
 
 
+// get all cars
 routes.get('/getcars', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err);
@@ -13,6 +14,8 @@ routes.get('/getcars', (req, res) =>{
     })
 })
 
+
+// insert cars
 routes.post('/insertcars', (req, res) =>{
     req.getConnection((err, conn) =>{
         if(err) return res.send(err);
@@ -20,9 +23,38 @@ routes.post('/insertcars', (req, res) =>{
 
         conn.query('insert into Cars set ?;', [req.body], (err,rows) =>{
             if(err) return res.send(err);
-            res.json(rows)
             res.send(JSON.stringify({
                 "message": "Insertion successful"
+            }))
+        })
+    })
+})
+
+
+// deleter cars
+routes.delete('/deletecars/:id', (req, res) =>{
+    req.getConnection((err, conn) =>{
+        if(err) return res.send(err);
+
+
+        conn.query('DELETE FROM Cars where car_id = ?;', [req.params.id], (err,rows) =>{
+            if(err) return res.send(err);
+            res.send(JSON.stringify({
+                "message": `Car deleted`
+            }))
+        })
+    })
+})
+
+routes.post('/updatecars/:id', (req, res) =>{
+    req.getConnection((err, conn) =>{
+        if(err) return res.send(err);
+
+
+        conn.query(`UPDATE Cars set ? where car_id = ?;`, [req.body, req.params.id], (err,rows) =>{
+            if(err) return res.send(err);
+            res.send(JSON.stringify({
+                "message": `Car updated`
             }))
         })
     })
