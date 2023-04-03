@@ -24,7 +24,7 @@ routes.post('/insertcars', (req, res) =>{
         conn.query('insert into Cars set ?;', [req.body], (err,rows) =>{
             if(err) return res.send(err);
             res.send(JSON.stringify({
-                "message": "Insertion successful"
+                "message": "Car inserted successfully"
             }))
         })
     })
@@ -40,7 +40,7 @@ routes.delete('/deletecars/:id', (req, res) =>{
         conn.query('DELETE FROM Cars where car_id = ?;', [req.params.id], (err,rows) =>{
             if(err) return res.send(err);
             res.send(JSON.stringify({
-                "message": `Car deleted`
+                "message": `Car deleted successfully`
             }))
         })
     })
@@ -54,7 +54,7 @@ routes.post('/updatecars/:id', (req, res) =>{
         conn.query(`UPDATE Cars set ? where car_id = ?;`, [req.body, req.params.id], (err,rows) =>{
             if(err) return res.send(err);
             res.send(JSON.stringify({
-                "message": `Car updated`
+                "message": `Car updated successfully`
             }))
         })
     })
