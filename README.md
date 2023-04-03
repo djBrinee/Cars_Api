@@ -17,6 +17,8 @@ Esto es un API sencilla, basada en un CRUD (Create, Read ,Update, Delete). La cu
 ```
 -- crear la base de datos
 create database sample_api
+-- apuntar a la base de datos
+use sample_api
 -- crear la tabla de carros (cars)
 CREATE TABLE `Cars` (
   `car_id` int AUTO_INCREMENT,
