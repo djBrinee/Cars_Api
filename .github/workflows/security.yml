@@ -1,0 +1,16 @@
+name: Comprobar vulnerabilidades de seguridad
+on:
+  push:
+jobs:
+  security_scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.4.0
+      with:
+        node-version: '14.x'
+    - name: Install NPM packages
+      run: npm ci
+    - name: Check for vulnerabilities
+      run: npm audit
