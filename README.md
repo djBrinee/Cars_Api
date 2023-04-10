@@ -92,8 +92,9 @@ Si recibe este mensaje, entonces ha realizado el proceso de manera correcta. De 
 * **Teléfono**: +18297787625.
 
 
-
-
-
-
-
+## Descripción de las GitHub Actions
+* **assign-me.yml**. A partir de los pull requests, asigna al autor de dicho pull al repositorio en GitHub.
+* **build-test.yml**. Hace build y test del proyecto cada vez que se haga push al repositorio.
+* **documentation.yml**. Actualiza la documentación intrínseca del proyecto cada vez que se suban cambios al repositorio.
+* **qa.yml**. Comprueba la calidad del código con cada push al repositorio.
+* **security.yml**. Verifica las vulnerabilidades dentro del código fuente del proyecto con cada actualización del repositorio.
