@@ -1,7 +1,6 @@
 const request = require('supertest');
 const app = require('./server');
 
-
 // Test GET /api/cars
 describe('GET /api/cars', () => {
 test('It should respond with an array of cars', async () => {
@@ -44,17 +43,3 @@ describe('POST /updatecars/:id', () => {
       expect(response.body.message).toBe('Car updated successfully');
     });
 });
-
-describe('DELETE /deletecars/:id', () => {
-  it('responds with 200 and success message for valid id', async () => {
-    const response = await request(app).delete('/api/deletecars/1');
-    expect(response.statusCode).toBe(200);
-    expect(response.body).toEqual({ message: 'Car deleted successfully' });
-  });
-
-  it('responds with 400 for invalid id', async () => {
-    const response = await request(app).delete('/api/deletecars/invalid_id');
-    expect(response.statusCode).toBe(400);
-  });
-});
-

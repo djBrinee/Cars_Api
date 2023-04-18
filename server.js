@@ -6,7 +6,7 @@ const myconn = require('express-myconnection');
 const routes = require('./routes');
 
 const app = express();
-app.set('port', 9051);
+app.set('port', 3000);
 
 const dbOptions = {
     host: 'sql9.freemysqlhosting.net',

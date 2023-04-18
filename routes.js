@@ -60,4 +60,16 @@ routes.post('/updatecars/:id', (req, res) =>{
     })
 })
 
+routes.get('/searchcars/:id', (req, res) =>{
+    req.getConnection((err, conn) =>{
+        if(err) return res.send(err);
+
+
+        conn.query(`SELECT * FROM Cars Where car_id = ?;`, [req.params.id], (err,rows) =>{
+            if(err) return res.send(err);
+            res.json(rows)
+        })
+    })
+})
+
 module.exports = routes;
