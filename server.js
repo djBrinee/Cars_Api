@@ -6,19 +6,16 @@ const myconn = require('express-myconnection');
 const routes = require('./routes');
 
 const app = express();
-app.set('port', process.env.PORT || 9001);
+app.set('port', 9051);
 
 const dbOptions = {
-    host: 'aws.connect.psdb.cloud',
-    user: '1iqifm5f7xb1b8w9awyk',
-    password: 'pscale_pw_AV3iKYziCyI7EG21rnrO4meONEIDS5pwDDmWqjTthKm',
-    database: 'dbcars',
-    port: 3306,
-    ssl: {
-        ca: 'BaltimoreCyberTrustRoot.crt.pem',
-        rejectUnauthorized: false
-    }
-};
+    host: 'sql9.freemysqlhosting.net',
+    user: 'sql9613381',
+    password: 'vTbInsma3I',
+    database: 'sql9613381',
+    port: 3306
+  };
+  
 
 // middlewares
 app.use(myconn(mysql, dbOptions, 'single'));
