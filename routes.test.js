@@ -2,9 +2,6 @@ const request = require('supertest');
 const app = require('./server');
 
 
-const request = require('supertest');
-const app = require('./server');
-
 // Test GET /api/cars
 describe('GET /api/cars', () => {
 test('It should respond with an array of cars', async () => {
