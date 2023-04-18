@@ -10,8 +10,8 @@ app.set('port', process.env.PORT || 9001);
 
 const dbOptions = {
     host: 'aws.connect.psdb.cloud',
-    user: '5tdxwgerjwwy1pujqweb',
-    password: 'pscale_pw_Wi0b9hMssGaL6zzP5veFsXYMwYoykTkkDOIvmoTB4m1',
+    user: '1iqifm5f7xb1b8w9awyk',
+    password: 'pscale_pw_AV3iKYziCyI7EG21rnrO4meONEIDS5pwDDmWqjTthKm',
     database: 'dbcars',
     port: 3306,
     ssl: {
