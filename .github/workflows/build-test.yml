@@ -11,7 +11,6 @@ jobs:
         node-version: '14.x'
     - name: Install Dependencies
       run: npm install
-    - name: Start project
-      run: npm start
     - name: Run Tests
-      run: npm test
+      run: npm test --forceExit
+
