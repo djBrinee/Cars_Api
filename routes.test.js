@@ -4,14 +4,14 @@ const app = require('./server');
 // Test GET /api/cars
 describe('GET /api/cars', () => {
 test('It should respond with an array of cars', async () => {
-    const response = await request(app).get('/api/cars');
+    const response = await request(app).get('/api/getcars');
     expect(response.statusCode).toBe(200);
     expect(response.body).toEqual(expect.any(Array));
     expect(response.body.length).toBeGreaterThan(0);
     });
 });
 
-describe('POST /insertcars', () => {
+describe('POST /api/insertcars', () => {
     it('responds with 200 and success message when car is inserted successfully', async () => {
       const newCar = {
     "make": "Supra",
@@ -22,22 +22,24 @@ describe('POST /insertcars', () => {
     "price": 10199.99,
     "status": "available",
     "location": "Santo Domingo, RD"
-  };
+  }
       const response = await request(app)
-        .post('/insertcars')
+        .post('/api/insertcars')
+        .set('Content-Type', 'application/json')
         .send(newCar);
+        
       expect(response.statusCode).toBe(200);
       expect(response.body.message).toBe('Car inserted successfully');
     });
 });
 
-describe('POST /updatecars/:id', () => {
+describe('POST /api/updatecars/10', () => {
     it('responds with 200 and success message when car is inserted successfully', async () => {
       const updatedCar= {
     "status": "unavailable"
   };
       const response = await request(app)
-        .post('/updatecars/:id')
+        .post('/api/updatecars/10')
         .send(updatedCar);
       expect(response.statusCode).toBe(200);
       expect(response.body.message).toBe('Car updated successfully');

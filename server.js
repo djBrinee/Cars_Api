@@ -7,7 +7,7 @@ const routes = require('./routes');
 
 const app = express();
 app.set('port', 3000);
-
+port = 3000
 const dbOptions = {
     host: 'sql9.freemysqlhosting.net',
     user: 'sql9613381',
@@ -29,6 +29,8 @@ app.get('/', (req, res) => {
 app.use('/api', routes);
 
 // server running 
-app.listen(app.get('port'), () => {
-    console.log('Server running on port', app.get('port'));
-});
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => console.log(`Listening on port ${port}`))
+}
+
+module.exports = app;
