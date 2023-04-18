@@ -12,6 +12,6 @@
   },
   "rules": {
     "quotes": ["error", "single"],
-    "no-console": "on"
+    "no-console": 1
   }
 }
