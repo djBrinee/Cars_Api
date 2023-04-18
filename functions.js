@@ -1,5 +1,5 @@
-export function ConvertPriceUSDtoDOP(car){
-    return car.price*54.67
+function ConvertPriceUSDtoDOP(car){
+    return Math.round(car.price*54.67)
 }
 
 function CarIs5orLessYearsOld(car){
@@ -22,14 +22,4 @@ function CarsRecommendedMileage(car){
     }
 }
 
-let car = {
-    "make": "Honda",
-    "model": "Civic",
-    "year": 2022,
-    "vin": "1HGEJ8140XL027459",
-    "mileage": 5000,
-    "price": 22000.75,
-    "status": "available",
-    "location": "456 Elm St, Anytown USA"
-}
-
+module.exports = { ConvertPriceUSDtoDOP, CarIs5orLessYearsOld, CarsRecommendedMileage};

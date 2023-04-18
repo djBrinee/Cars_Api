@@ -60,16 +60,22 @@ routes.post('/updatecars/:id', (req, res) =>{
     })
 })
 
-routes.get('/searchcars/:id', (req, res) =>{
-    req.getConnection((err, conn) =>{
-        if(err) return res.send(err);
+routes.get('/searchcars/:id', (req, res) => {
+    req.getConnection((err, conn) => {
+        if (err) return res.send(err);
 
+        conn.query(`SELECT * FROM Cars WHERE car_id = ?;`, [req.params.id], (err, rows) => {
+            if (err) return res.send(err);
 
-        conn.query(`SELECT * FROM Cars Where car_id = ?;`, [req.params.id], (err,rows) =>{
-            if(err) return res.send(err);
-            res.json(rows)
-        })
-    })
-})
+            if (rows.length === 0) {
+                res.status(404).send({
+                    "Message" : "Car not found"
+                });
+            } else {
+                res.json(rows);
+            }
+        });
+    });
+});
 
 module.exports = routes;
