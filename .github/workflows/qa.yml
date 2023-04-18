@@ -13,6 +13,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Install ESLint
-        run: npm install eslint --save-dev
+        run: npm install eslint --save-dev && npm install eslint-plugin-node --save-dev
       - name: Lint with ESLint
         run: npm run lint
