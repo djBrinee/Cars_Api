@@ -1,8 +1,8 @@
 const request = require('supertest');
 const app = require('./server');
 
-// Test GET /api/cars
-describe('GET /api/cars', () => {
+// Test GET /api/getcars
+describe('GET /api/getcars', () => {
 test('It should respond with an array of cars', async () => {
     const response = await request(app).get('/api/getcars');
     expect(response.statusCode).toBe(200);
@@ -10,6 +10,8 @@ test('It should respond with an array of cars', async () => {
     expect(response.body.length).toBeGreaterThan(0);
     });
 });
+
+// Test GET /api/insertcars
 
 describe('POST /api/insertcars', () => {
     it('responds with 200 and success message when car is inserted successfully', async () => {
@@ -33,6 +35,7 @@ describe('POST /api/insertcars', () => {
     });
 });
 
+// Test GET /api/updatecars
 describe('POST /api/updatecars/10', () => {
     it('responds with 200 and success message when car is inserted successfully', async () => {
       const updatedCar= {
@@ -44,4 +47,13 @@ describe('POST /api/updatecars/10', () => {
       expect(response.statusCode).toBe(200);
       expect(response.body.message).toBe('Car updated successfully');
     });
+});
+
+// Test GET /api/searchcars
+describe('POST /api/seachcars/10', () => {
+  it('responds with 200 and success message when car is existing in database', async () => {
+    const response = await request(app)
+      .get('/api/searchcars/10')
+    expect(response.statusCode).toBe(200);
+  });
 });
