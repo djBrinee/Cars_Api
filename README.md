@@ -98,3 +98,4 @@ Si recibe este mensaje, entonces ha realizado el proceso de manera correcta. De 
 * **documentation.yml**. Actualiza la documentación intrínseca del proyecto cada vez que se suban cambios al repositorio.
 * **qa.yml**. Comprueba la calidad del código con cada push al repositorio.
 * **security.yml**. Verifica las vulnerabilidades dentro del código fuente del proyecto con cada actualización del repositorio.
+
