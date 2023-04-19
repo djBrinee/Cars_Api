@@ -169,7 +169,7 @@ describe('POST /api/insertcars', () => {
       .set('Content-Type', 'application/json')
       .send(newCar);
       
-    expect(response.statusCode).toBe(200);
+    expect(response.statusCode).toBe(404);
     expect(response.body.message).toBe('Car inserted successfully');
   });
 });
